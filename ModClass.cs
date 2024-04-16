@@ -25,6 +25,18 @@ public class MetalPipeHM : Mod, ICustomMenuMod, ITogglableMod
                         toggleDelegates: modtoggledelegates.Value,
                         name: "Mod Enabled",
                         description: "Should mod be enabled?"),
+                      new TextPanel(
+                        name:"",
+                        fontSize: 50),
+                      new TextPanel(
+                        name:"",
+                        fontSize: 50),
+                      new TextPanel(
+                        name:"Made with love",
+                        fontSize: 50),
+                    new TextPanel(
+                        name:"to make noramasa laugh",
+                        fontSize: 50),
                 });
         return MenuRef.GetMenuScreen(modListMenu);
     }
