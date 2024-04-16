@@ -33,6 +33,10 @@ public class MetalPipeHM : Mod, ICustomMenuMod, ITogglableMod
     {
         ModHooks.AttackHook += OnHeroAttack;
         On.HeroController.Awake += OnHeroControllerAwake;
+        if (HeroController.instance != null)
+        {
+            HeroController.instance.gameObject.AddComponent<PipeSoundHandler>();
+        }
     }
 
     private void OnHeroControllerAwake(On.HeroController.orig_Awake orig, HeroController self)
@@ -48,14 +52,12 @@ public class MetalPipeHM : Mod, ICustomMenuMod, ITogglableMod
 
     public void Unload()
     {
-
         if (HeroController.instance != null)
         {
             PipeSoundHandler PipeSoundHandler;
             HeroController.instance.TryGetComponent(out PipeSoundHandler);
             UnityEngine.Object.Destroy(PipeSoundHandler);
         }
-
         ModHooks.AttackHook -= OnHeroAttack;
         On.HeroController.Awake -= OnHeroControllerAwake;
     }
